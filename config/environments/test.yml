@@ -1,0 +1,20 @@
+secret_key_base: C5UVJK6abDygKI1ZCJs2ImcFfmHDqjup6-IL8pr8RLQ
+port: 3000
+name: publicapi
+colorize_logging: true
+host: localhost
+port_reuse: false
+process_count: 1
+# ssl_key_file:
+# ssl_cert_file:
+redis_url: "redis://localhost:6379"
+database_url: postgres://postgres:@localhost:5432/publicapi_test
+session:
+  key: amber.session
+  store: signed_cookie
+  expires: 0
+
+secrets:
+  description: Store your development secrets credentials and settings here.
+
+

@@ -1,0 +1,41 @@
+<%- if entry.errors %>
+  <ul class="errors">
+  <%- entry.errors.each do |error| %>
+    <li><%= error.to_s %></li>
+  <%- end %>
+  </ul>
+<%- end %>
+
+
+
+<%- action = (entry.id ? "/entries/" + entry.id.to_s : "/entries") %>
+<form action="<%= action %>" method="post">
+  <%= csrf_tag %>
+  <%- if entry.id %>
+  <input type="hidden" name="_method" value="patch" />
+  <%- end %>
+
+  <div class="form-group">
+    <%= text_field(name: "api", value: entry.api, placeholder: "Api", class: "form-control") -%>
+  </div>
+  <div class="form-group">
+    <%= text_field(name: "auth", value: entry.auth, placeholder: "Auth", class: "form-control") -%>
+  </div>
+  <div class="form-group">
+    <%= text_field(name: "category", value: entry.category, placeholder: "Category", class: "form-control") -%>
+  </div>
+  <div class="form-group">
+    <%= text_area(name: "description", content: entry.description, placeholder: "Description", class: "form-control", size: "30x10") -%>
+  </div>
+  <div class="form-group">
+    <div class="checkbox">
+      <%= label(:https) -%>
+      <%= check_box(:https, checked: entry.https.to_s == "1") -%>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= text_field(name: "link", value: entry.link, placeholder: "Link", class: "form-control") -%>
+  </div>
+  <%= submit("Submit", class: "btn btn-primary btn-xs") -%>
+  <%= link_to("back", "/entries", class: "btn btn-default btn-xs") -%>
+</form>
