@@ -3,6 +3,7 @@ require "amber"
 require "../src/models/**"
 require "../src/controllers/application_controller"
 require "../src/controllers/**"
+require "../src/tasks/**"
 
 # About Application.cr File
 #
@@ -19,7 +20,6 @@ require "../src/controllers/**"
 # > Important! Yaml configurations are first class citizen and are loaded first before
 # this file, we recommend to use yaml configurations before changing any settings here.
 # Any uncommented setting here will override the YAML with the value set here.
-
 
 Amber::Server.configure do |settings|
   # Use your environment variables settings here.
@@ -122,5 +122,5 @@ Amber::Server.configure do |settings|
   # Log Level defines the verbosity of the Amber logger. This option defaults to
   # :debug for all environments. The available log levels are: :debug, :info, :warn,
   # :error, :fatal, and :unknown.
-  settings.logger.level        = ::Logger::DEBUG
+  settings.logger.level = ::Logger::DEBUG
 end
