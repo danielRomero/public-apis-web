@@ -44,7 +44,7 @@ export AMBER_ENV=production
 ```
 
 To build a production release:
-  
+
 ```
 shards build --production --release publicapi
 ```
@@ -53,6 +53,12 @@ To build production assets:
 
 ```
 npm run release
+```
+
+### Import data
+
+```
+crystal src/tasks/import.cr
 ```
 
 To use encrypted enviroment settings see [documentation](https://github.com/amberframework/online-docs/blob/master/getting-started/cli/encrypt.md#encrypt-command)
