@@ -1,0 +1,208 @@
+<section class="hero is-transparent">
+  <div class="hero-body">
+    <div class="container">
+      <h1 class="title">
+        Public APIs directory
+      </h1>
+      <h2 class="subtitle">
+        Open JSON API documentation
+      </h2>
+      <div class="control">
+        <div class="tags has-addons is-small">
+          <span class="tag is-dark">version</span>
+          <span class="tag is-info">1</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="tabs">
+  <ul>
+    <li class="is-active"><a data-target="all-entries">All Entries</a></li>
+    <li><a data-target="all-categories">All Categories</a></li>
+    <li><a data-target="entries-by-category">Entries by category</a></li>
+    <li><a data-target="search-entries">Search Entries</a></li>
+  </ul>
+</div>
+<div class="api-doc content" id="all-entries">
+  <p class="title is-3">All Entries</p>
+  <p class="subtitle is-5 is-spaced">Returns a list of entries paginated</p>
+
+  <p class="title is-5">Request</p>
+  <p class="subtitle is-5 is-spaced">GET <a href="http://localhost:3000/api/v1/entries/index?page=1">http://localhost:3000/api/v1/entries/index?page=1</a></p>
+
+  <p class="title is-5">Parameters</p>
+  <table class="table is-bordered">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>page</td>
+        <td>Integer</td>
+        <td>Optional</td>
+      </tr>
+    </tbody>
+  </table>
+  <p class="title is-5">Response</p>
+  <figure class="has-text-left">
+    <pre>
+      <code>
+        {
+          "count": 50,
+          "page": 0,
+          "total": 485,
+          "data":
+            [
+              {
+                "id":972,
+                "api":"IUCN",
+                "auth":"apiKey",
+                "category":"Animals",
+                "description":"IUCN Red List of Threatened Species",
+                "https":false,
+                "link":"http://apiv3.iucnredlist.org/api/v3/docs",
+                "created_at":"2017-12-23 19:54:12",
+                "updated_at":"2017-12-23 19:54:12"
+              }
+            ]
+        }
+      </code>
+    </pre>
+  </figure>
+</div>
+
+<div class="api-doc content is-hidden" id="all-categories">
+  <p class="title is-3">All Categories</p>
+  <p class="subtitle is-5 is-spaced">Returns a list of all categories</p>
+
+  <p class="title is-5">Request</p>
+  <p class="subtitle is-5 is-spaced">GET <a href="http://localhost:3000/api/v1/entries/categories">http://localhost:3000/api/v1/entries/categories</a></p>
+
+  <p class="title is-5">Parameters</p>
+
+  <figure class="has-text-left">
+    <pre>
+      <code>
+        {
+          "count":3,
+          "total":48,
+          "data":
+            [
+              "Animals",
+              "Anime",
+              "Anti-Malware"
+            ]
+        }
+      </code>
+    </pre>
+  </figure>
+</div>
+
+<div class="api-doc content is-hidden" id="entries-by-category">
+  <p class="title is-3">Entries by category</p>
+  <p class="subtitle is-5 is-spaced">Returns a list of entries belonging to searched category</p>
+
+  <p class="title is-5">Request</p>
+  <p class="subtitle is-5 is-spaced">GET <a href="http://localhost:3000/api/v1/entries/by_category?category=Animals">http://localhost:3000/api/v1/entries/by_category?category=Animals</a></p>
+
+  <p class="title is-5">Parameters</p>
+
+  <table class="table is-bordered">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>category</td>
+        <td>String</td>
+        <td>Mandatory</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <figure class="has-text-left">
+    <pre>
+      <code>
+        {
+          "count": 43,
+          "total": 43,
+          "data":
+            [
+              {
+                "id":972,
+                "api":"IUCN",
+                "auth":"apiKey",
+                "category":"Animals",
+                "description":"IUCN Red List of Threatened Species",
+                "https":false,
+                "link":"http://apiv3.iucnredlist.org/api/v3/docs",
+                "created_at":"2017-12-23 19:54:12",
+                "updated_at":"2017-12-23 19:54:12"
+              }
+            ]
+        }
+      </code>
+    </pre>
+  </figure>
+</div>
+
+<div class="api-doc content is-hidden" id="search-entries">
+  <p class="title is-3">Search Entries</p>
+  <p class="subtitle is-5 is-spaced">Returns a list of entries as result of query. The search will match "api", "description" and "category" fields</p>
+
+  <p class="title is-5">Request</p>
+  <p class="subtitle is-5 is-spaced">GET <a href="http://localhost:3000/api/v1/entries/search?q=species">http://localhost:3000/api/v1/entries/search?q=species</a></p>
+
+  <p class="title is-5">Parameters</p>
+  <table class="table is-bordered">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>q</td>
+        <td>String</td>
+        <td>Mandatory</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <figure class="has-text-left">
+    <pre>
+      <code>
+        {
+          "count": 5,
+          "total": 5,
+          "data":
+            [
+              {
+                "id":972,
+                "api":"IUCN",
+                "auth":"apiKey",
+                "category":"Animals",
+                "description":"IUCN Red List of Threatened Species",
+                "https":false,
+                "link":"http://apiv3.iucnredlist.org/api/v3/docs",
+                "created_at":"2017-12-23 19:54:12",
+                "updated_at":"2017-12-23 19:54:12"
+              }
+            ]
+        }
+      </code>
+    </pre>
+  </figure>
+</div>

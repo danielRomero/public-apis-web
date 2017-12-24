@@ -4,24 +4,18 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>Hello Bulma!</title>
+    <title>Public APIs directory</title>
     <link rel="stylesheet" href="/dist/main.bundle.css">
   </head>
   <body>
+  <%= render(partial: "layouts/_nav.ecr") %>
   <section class="section">
     <div class="container">
-      <%= render(partial: "layouts/_nav.ecr") %>
-
       <%= render(partial: "layouts/_notification.ecr") %>
       <%= content %>
-      <h1 class="title">
-        Hello World APPLICATION
-      </h1>
-      <p class="subtitle">
-        My first website with <strong>Bulma</strong>!
-      </p>
     </div>
   </section>
+  <%= render(partial: "layouts/_footer.ecr") %>
   <script src="/dist/main.bundle.js"></script>
   <script defer src="https://use.fontawesome.com/releases/v5.0.2/js/all.js"></script>
   </body>

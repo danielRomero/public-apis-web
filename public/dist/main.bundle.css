@@ -6466,4 +6466,18 @@ label.panel-block {
   background-color: whitesmoke;
   padding: 3rem 1.5rem 6rem; }
 
+#amber-logo {
+  background-image: url(/dist/images/amber-white-bg.png);
+  background-size: contain;
+  width: 100px;
+  height: 40px;
+  margin: 0 auto; }
+
+#crystal-logo {
+  background-image: url(/dist/images/crystal-lang-logo.png);
+  background-size: contain;
+  width: 40px;
+  height: 40px;
+  margin: 0 auto; }
+
 /*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJtYWluLmJ1bmRsZS5jc3MiLCJzb3VyY2VSb290IjoiIn0=*/

@@ -11,6 +11,9 @@ CREATE TABLE entries (
   updated_at TIMESTAMP
 );
 
+CREATE INDEX ON entries ((lower(api)));
+CREATE INDEX ON entries ((lower(description)));
+CREATE INDEX ON entries ((lower(category)));
 
 -- +micrate Down
 DROP TABLE IF EXISTS entries;

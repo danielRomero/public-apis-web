@@ -1,13 +1,22 @@
-<div class="field has-addons has-addons-centered">
-  <div class="control has-icons-left">
-    <input class="input" type="text" placeholder="Find an API">
-    <span class="icon is-small is-left">
-      <i class="fas fa-search"></i>
-    </span>
+<section class="hero is-dark is-medium is-bold">
+  <div class="hero-head">
+    <%= render(partial: "layouts/_nav.ecr") %>
   </div>
-  <div class="control">
-    <a class="button is-dark">
-      <i class="fas fa-search"></i>
-    </a>
+
+  <div class="hero-body">
+    <div class="container has-text-centered">
+      <h1 class="title">
+        Public APIs
+      </h1>
+      <h2 class="subtitle">
+        A collective list of public JSON APIs for use in web development.
+      </h2>
+      <%= render(partial: "entry/_search.ecr") %>
+    </div>
+  </div>
+</section>
+<section class="section">
+  <div class="container">
+    <%= render(partial: "entry/_index.ecr") %>
   </div>
 </div>

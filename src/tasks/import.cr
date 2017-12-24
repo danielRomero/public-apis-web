@@ -1,4 +1,4 @@
-# Define task
+# Run: crystal src/tasks/import.cr
 require "../../config/application.cr"
 require "http/client"
 require "json"
@@ -27,6 +27,7 @@ if response.success?
   puts "Entries in JSON: #{parsed_response["count"]}"
 
   # BUILD ENTRIES
+  Entry.clear unless parsed_response["count"].as_i.zero? # truncate the table
   parsed_response["entries"].each do |json_entry|
     build_and_save_entry(json_entry)
   end

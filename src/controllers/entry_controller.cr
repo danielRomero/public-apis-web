@@ -1,6 +1,11 @@
 class EntryController < ApplicationController
   def index
-    entries = Entry.all
+    entries_grouped = Entry.all("ORDER BY category ASC").group_by { |entry| entry.category }
+    render("index.ecr")
+  end
+
+  def search
+    entries_grouped = Entry.search(params[:q]).group_by { |entry| entry.category }
     render("index.ecr")
   end
 

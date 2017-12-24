@@ -4,43 +4,13 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>Hello Bulma!</title>
+    <title>Public APIs directory</title>
     <link rel="stylesheet" href="/dist/main.bundle.css">
   </head>
   <body>
-    <section class="hero is-dark is-medium is-bold">
-      <div class="hero-head">
-        <%= render(partial: "layouts/_nav.ecr") %>
-      </div>
-
-      <div class="hero-body">
-        <div class="container has-text-centered">
-          <h1 class="title">
-            Public APIs
-          </h1>
-          <h2 class="subtitle">
-            A collective list of public JSON APIs for use in web development.
-          </h2>
-          <%= content %>
-        </div>
-      </div>
-
-      <div class="hero-foot">
-        <nav class="tabs">
-          <div class="container">
-            <ul>
-              <li class="is-active"><a>Overview</a></li>
-              <li><a>Modifiers</a></li>
-              <li><a>Grid</a></li>
-              <li><a>Elements</a></li>
-              <li><a>Components</a></li>
-              <li><a>Layout</a></li>
-            </ul>
-          </div>
-        </nav>
-      </div>
-    </section>
-    <%= render(partial: "entry/_index.ecr") %>
+    <%= render(partial: "layouts/_notification.ecr") %>
+    <%= content %>
+    <%= render(partial: "layouts/_footer.ecr") %>
     <script src="/dist/main.bundle.js"></script>
     <script defer src="https://use.fontawesome.com/releases/v5.0.2/js/all.js"></script>
   </body>

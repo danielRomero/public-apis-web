@@ -1,0 +1,15 @@
+<form action="/entries/search">
+  <div class="field has-addons has-addons-centered">
+    <div class="control has-icons-left">
+      <%= text_field(name: "q", placeholder: "Find an API", class: "input") -%>
+      <span class="icon is-small is-left">
+        <i class="fas fa-search"></i>
+      </span>
+    </div>
+    <div class="control">
+      <button class="button is-dark" type="submit">
+        <i class="fas fa-search"></i>
+      </button>
+    </div>
+  </div>
+</form>

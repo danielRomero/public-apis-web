@@ -1,1 +1,17 @@
-@import "~bulma/bulma"
+@import "~bulma/bulma";
+
+#amber-logo {
+  background-image: url("../images/amber-white-bg.png");
+  background-size: contain;
+  width: 100px;
+  height: 40px;
+  margin: 0 auto;
+}
+
+#crystal-logo {
+  background-image: url("../images/crystal-lang-logo.png");
+  background-size: contain;
+  width: 40px;
+  height: 40px;
+  margin: 0 auto;
+}
