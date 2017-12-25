@@ -20,7 +20,6 @@ require "../src/controllers/**"
 # this file, we recommend to use yaml configurations before changing any settings here.
 # Any uncommented setting here will override the YAML with the value set here.
 
-
 Amber::Server.configure do |settings|
   # Use your environment variables settings here.
   #
@@ -94,7 +93,7 @@ Amber::Server.configure do |settings|
   # database or the data file. Defaults to the database provider you chose at
   # at app generation.
   #
-  # settings.database_url = ENV["DATABASE_URL"] if ENV["DATABASE_URL"]?
+  settings.database_url = ENV["DATABASE_URL"] if ENV["DATABASE_URL"]?
   #
   #
   # SSL Key File: The private key is a text file used initially to generate a
