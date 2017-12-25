@@ -1,17 +1,11 @@
 require "./spec_helper"
 
 def entry_hash
-  {"api" => "Fake", "auth" => "Fake", "category" => "Fake", "description" => "Fake", "https" => "true", "link" => "Fake"}
+  {}
 end
 
 def entry_params
   params = [] of String
-  params << "api=#{entry_hash["api"]}"
-  params << "auth=#{entry_hash["auth"]}"
-  params << "category=#{entry_hash["category"]}"
-  params << "description=#{entry_hash["description"]}"
-  params << "https=#{entry_hash["https"]}"
-  params << "link=#{entry_hash["link"]}"
   params.join("&")
 end
 
@@ -28,7 +22,6 @@ class EntryControllerTest < GarnetSpec::Controller::Test
     @handler = Amber::Pipe::Pipeline.new
     @handler.build :web do
       plug Amber::Pipe::Error.new
-      plug Amber::Pipe::Logger.new
       plug Amber::Pipe::Session.new
       plug Amber::Pipe::Flash.new
     end
@@ -41,16 +34,16 @@ describe EntryControllerTest do
 
   it "renders entry index template" do
     Entry.clear
-    response = subject.get "/entries"
+    response = subject.get "/entrys"
 
     response.status_code.should eq(200)
-    response.body.should contain("entries")
+    response.body.should contain("Entrys")
   end
 
   it "renders entry show template" do
     Entry.clear
     model = create_entry
-    location = "/entries/#{model.id}"
+    location = "/entrys/#{model.id}"
 
     response = subject.get location
 
@@ -60,7 +53,7 @@ describe EntryControllerTest do
 
   it "renders entry new template" do
     Entry.clear
-    location = "/entries/new"
+    location = "/entrys/new"
 
     response = subject.get location
 
@@ -71,7 +64,7 @@ describe EntryControllerTest do
   it "renders entry edit template" do
     Entry.clear
     model = create_entry
-    location = "/entries/#{model.id}/edit"
+    location = "/entrys/#{model.id}/edit"
 
     response = subject.get location
 
@@ -81,9 +74,9 @@ describe EntryControllerTest do
 
   it "creates a entry" do
     Entry.clear
-    response = subject.post "/entries", body: entry_params
+    response = subject.post "/entrys", body: entry_params
 
-    response.headers["Location"].should eq "/entries"
+    response.headers["Location"].should eq "/entrys"
     response.status_code.should eq(302)
     response.body.should eq "302"
   end
@@ -91,9 +84,9 @@ describe EntryControllerTest do
   it "updates a entry" do
     Entry.clear
     model = create_entry
-    response = subject.patch "/entries/#{model.id}", body: entry_params
+    response = subject.patch "/entrys/#{model.id}", body: entry_params
 
-    response.headers["Location"].should eq "/entries"
+    response.headers["Location"].should eq "/entrys"
     response.status_code.should eq(302)
     response.body.should eq "302"
   end
@@ -101,9 +94,9 @@ describe EntryControllerTest do
   it "deletes a entry" do
     Entry.clear
     model = create_entry
-    response = subject.delete "/entries/#{model.id}"
+    response = subject.delete "/entrys/#{model.id}"
 
-    response.headers["Location"].should eq "/entries"
+    response.headers["Location"].should eq "/entrys"
     response.status_code.should eq(302)
     response.body.should eq "302"
   end

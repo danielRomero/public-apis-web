@@ -1,8 +1,22 @@
-secret_key_base: nRCgMR_LDErZ9ns73fIqrgLfO60A9lUxldErxp6A0pQ
+secret_key_base: WFXYQUiQolqKcRpvpXZg8l_eOjVr_kptsqjS9Y1Nuvw
 port: 3000
-name: publicapi
-colorize_logging: true
-host: localhost
+name: public_apis_web
+logging:
+  severity: debug
+  colorize: true
+  filter:
+    - password
+    - confirm_password
+  skip:
+    -
+  context:
+    - request
+    - session
+    - headers
+    - cookies
+    - params
+
+host: 0.0.0.0
 port_reuse: true
 process_count: 1
 # ssl_key_file:

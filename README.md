@@ -82,7 +82,7 @@ docker-compose logs -f
 
 ## Contributing
 
-1. Fork it ( https://github.com/your-github-user/publicapi/fork )
+1. Fork it ( https://github.com/danielRomero/public-apis-web/fork )
 2. Create your feature branch (git checkout -b my-new-feature)
 3. Commit your changes (git commit -am 'Add some feature')
 4. Push to the branch (git push origin my-new-feature)
@@ -90,4 +90,4 @@ docker-compose logs -f
 
 ## Contributors
 
-- [your-github-user](https://github.com/your-github-user) your-name-here - creator, maintainer
+- [danielRomero](https://github.com/danielRomero/) Daniel Romero - creator, maintainer

@@ -1,21 +1,13 @@
 version: '2'
 
 services:
-  web:
-    build: .
-    image: publicapi
-    command: bash -c 'npm install && npm run watch'
-    working_dir: /app/local
-    volumes:
-      - '.:/app/local'
-
   app:
     build: .
-    image: publicapi
+    image: public_apis_web
     command: 'amber watch'
     working_dir: /app/local
     environment:
-      DATABASE_URL: postgres://admin:password@db:5432/publicapi_development
+      DATABASE_URL: postgres://admin:password@db:5432/public_apis_web_development
       SMTP_URL: mail:1025
     ports:
       - '3000:3000'
@@ -27,11 +19,11 @@ services:
 
   migrate:
     build: .
-    image: publicapi
+    image: public_apis_web
     command: bash -c 'while ! nc -q 1 db 5432 </dev/null; do sleep 1; done && amber db migrate seed'
     working_dir: /app/local
     environment:
-      DATABASE_URL: postgres://admin:password@db:5432/publicapi_development
+      DATABASE_URL: postgres://admin:password@db:5432/public_apis_web_development
     volumes:
       - '.:/app/local'
     links:
@@ -47,7 +39,7 @@ services:
     environment:
       POSTGRES_USER: admin
       POSTGRES_PASSWORD: password
-      POSTGRES_DB: publicapi_development
+      POSTGRES_DB: public_apis_web_development
     volumes:
       - 'db:/var/lib/postgres/data'
 

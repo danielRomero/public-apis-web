@@ -1,14 +1,28 @@
-secret_key_base: C5UVJK6abDygKI1ZCJs2ImcFfmHDqjup6-IL8pr8RLQ
+secret_key_base: J9e5SmKSRU49fCxLgK2PVQysZulWGPxJlch_aejFbgo
 port: 3000
-name: publicapi
-colorize_logging: true
-host: localhost
+name: public_apis_web
+logging:
+  severity: debug
+  colorize: true
+  filter:
+    - password
+    - confirm_password
+  skip:
+    -
+  context:
+    - request
+    - session
+    - headers
+    - cookies
+    - params
+
+host: 0.0.0.0
 port_reuse: false
 process_count: 1
 # ssl_key_file:
 # ssl_cert_file:
 redis_url: "redis://localhost:6379"
-database_url: postgres://postgres:@localhost:5432/publicapi_test
+database_url: postgres://postgres:@localhost:5432/public_apis_web_test
 session:
   key: amber.session
   store: signed_cookie

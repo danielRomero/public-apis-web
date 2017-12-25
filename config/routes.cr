@@ -9,18 +9,15 @@ Amber::Server.configure do |app|
     plug Amber::Pipe::CSRF.new
   end
 
-  pipeline :api do
-    # Plug is the method to use connect a pipe (middleware)
-    # A plug accepts an instance of HTTP::Handler
-    plug Amber::Pipe::Error.new
-    plug Amber::Pipe::Logger.new
-  end
-
   # All static content will run these transformations
   pipeline :static do
     plug Amber::Pipe::Error.new
     plug Amber::Pipe::Static.new("./public")
-    plug HTTP::CompressHandler.new
+  end
+
+  pipeline :api do
+    plug Amber::Pipe::Error.new
+    plug Amber::Pipe::Logger.new
   end
 
   routes :static do
@@ -30,10 +27,10 @@ Amber::Server.configure do |app|
   end
 
   routes :web do
-    # resources "/entries", EntryController
-    get "/entries/search", EntryController, :search
-    get "/entries", EntryController, :index
+    resources "/entrys", EntryController
     get "/", HomeController, :index
+    get "/entries", EntryController, :index
+    get "/entries/search", EntryController, :search
     get "/api-docs/v1", ApidocController, :api_doc
   end
 

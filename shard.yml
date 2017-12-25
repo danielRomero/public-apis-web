@@ -1,16 +1,16 @@
-name: publicapi
+name: public_apis_web
 version: 0.1.0
 
 authors:
-  - your-name-here <your-email-here>
+  - DanielRomero <daniel.romero.esteban@gmail.com>
 
 crystal: 0.23.1
 
 license: UNLICENSED
 
 targets:
-  publicapi:
-    main: src/publicapi.cr
+  public_apis_web:
+    main: src/public_apis_web.cr
 
   amber:
     main: lib/amber/src/amber/cli.cr
@@ -18,8 +18,8 @@ targets:
 dependencies:
   amber:
     github: amberframework/amber
-    branch: master
-    #version: 0.3.6
+    version: 0.5.0
+    #branch: master
 
   granite_orm:
     github: amberframework/granite-orm

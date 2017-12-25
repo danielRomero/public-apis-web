@@ -20,19 +20,29 @@ require "../src/controllers/**"
 # this file, we recommend to use yaml configurations before changing any settings here.
 # Any uncommented setting here will override the YAML with the value set here.
 
+
 Amber::Server.configure do |settings|
   # Use your environment variables settings here.
   #
   # Name: A name that identifies this application. This is not internally
   # used by the framework.
   #
-  # settings.name = "Publicapi web application."
+  # settings.name = "Public Apis Web web application."
   #
   #
   # Colorize Logging: specifies whether or not to use ANSI color codes
-  # when logging information. Defaults to true.
+  # when logging information, display the time and/or to display the severity level.
+  # Defaults to true.
   #
-  # settings.colorize_logging = true
+  # Log Level defines the verbosity of the Amber logger. This option defaults to
+  # debug for all environments. The available log levels are: debug, info, warn,
+  # error, fatal, and unknown.
+  #
+  # settings.logging.colorize = true
+  # settings.logging.severity = debug
+  # settings.logging.filter = %w(password confirm_password)
+  # settings.logging.skip = %w()
+  # settings.logging.context = %w(request headers cookies session params)
   #
   #
   # Secret Key Base: is used for specifying a key which allows sessions
@@ -41,7 +51,7 @@ Amber::Server.configure do |settings|
   # initialized to a random key present in `ENV["AMBER_SECRET_KEY"]` or
   # `.amber_secret_key` in this order.
   #
-  # settings.secret_key_base= GBntpnc9KMhVJY4bcvY-YBfyCRs_CRVkQRV3Lst3ZlQ
+  # settings.secret_key_base= ERHT6N_sTEeQR7mVS7-oAanNC6VfHr_qyCx7G6dnvvk
   #
   #
   # Host: is the application server host address or ip address. Useful for when
@@ -118,8 +128,4 @@ Amber::Server.configure do |settings|
   # settings.logger = ::Logger.new(STDOUT)
   #
   #
-  # Log Level defines the verbosity of the Amber logger. This option defaults to
-  # :debug for all environments. The available log levels are: :debug, :info, :warn,
-  # :error, :fatal, and :unknown.
-  settings.logger.level = ::Logger::DEBUG
 end

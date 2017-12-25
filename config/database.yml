@@ -1,2 +1,0 @@
-pg:
-  database: postgres://postgres:postgres@127.0.0.1:5432/publicapi_development
